@@ -21,3 +21,11 @@ $( function() {
 		$('.nav-tabs > .active').prev('li').find('a').trigger('click');
 	});
 });
+
+$( function() {
+	$('.btnReset').click(function(){
+		$('.nav-tabs > .active').prev('li').find('a').trigger('click');
+		$('.nav-tabs > .active').prev('li').find('a').trigger('click');
+	});
+});
+

@@ -17,3 +17,20 @@
 .btnNext {
 	float: right;
 }
+
+.btnReset {
+	margin-right: 10px;
+}
+
+.divInclusao {
+	margin-left: 35%;
+	margin-top: 20%;
+}
+
+.divBotoes {
+	margin-left: 10%;
+}
+
+.divInclusao p {
+	font-weight: bold;
+}
