@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+.tabsCadastro {
+	margin-top: 5%;
+}
+
+.painelPrincipal {
+	height: 400px;
+}
+
+.campoData {
+	width: 70%;
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.btnNext {
+	float: right;
+}

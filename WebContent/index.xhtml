@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Cadastro de Tarefas | Sinapsis</title>
+	<meta name="viewport" content="width=device-width initial-scale=1" />
+	<meta http-equiv="X-UA-Caompatible" content="IE=edge" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<h:outputStylesheet library="css" name="myStyle.css" />
+	<h:outputScript library="js" name="jquery/jquery-3.2.1.js" />
+	<h:outputScript library="js" name="bootstrap.js" />
+	<!-- necessario para o datepicker -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<h:outputScript library="js" name="myJs.js" />
+</h:head>
+
+<h:body>
+
+	<ui:include src="WEB-INF/navbar.xhtml" />
+
+	<div class="container col-sm-6 col-sm-offset-3">
+		<div class="row">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">Inclusão</div>
+				<div class="panel-body">
+
+					<div class="panel panel-default painelPrincipal">
+						<div class="panel-body">
+
+							<ul class="nav nav-tabs">
+								<li class="active"><a data-toggle="tab" href="#parte1">PARTE 1</a></li>
+								<li><a data-toggle="tab" href="#parte2">PARTE 2</a></li>
+								<li><a data-toggle="tab" href="#confirmacao">CONFIRMAÇÃO</a></li>
+							</ul>
+
+							<!-- INICIO DO FORM -->
+							<h:form styleClass="form-horizontal">
+								<div class="tab-content tabsCadastro">
+
+									<!-- INICIO PARTE 1 -->
+									<div id="parte1" class="tab-pane active">
+										<div class="form-group">
+											<h:outputLabel styleClass="col-sm-2 control-label"
+												for="campo1">Campo 1:</h:outputLabel>
+											<div class="col-sm-6">
+												<h:inputText styleClass="form-control" id="campo1" />
+											</div>
+										</div>
+
+										<div class="form-group">
+											<h:outputLabel styleClass="col-sm-2 control-label" for="campo2">Campo 2:</h:outputLabel>
+											<div class="col-sm-6">
+												<h:inputText styleClass="form-control" id="campo2" />
+											</div>
+										</div>
+
+										<div class="form-group">
+											<h:outputLabel styleClass="col-sm-2 control-label" for="campo3">Campo 3:</h:outputLabel>
+											<div class="col-sm-6">
+												<h:inputText styleClass="form-control" id="campo3" />
+											</div>
+										</div>
+
+										<div class="form-group">
+											<h:outputLabel styleClass="col-sm-2 control-label" for="campo4">Campo 4:</h:outputLabel>
+											<div class="col-sm-2">
+												<h:selectOneMenu styleClass="form-control" id="campo4" value="">
+													<f:selectItem itemValue="1" itemLabel="Item 1" />
+													<f:selectItem itemValue="2" itemLabel="Item 2" />
+												</h:selectOneMenu>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<h:outputLabel styleClass="col-sm-2 control-label" for="campo5">Campo 5:</h:outputLabel>
+											<div class="col-sm-2">
+												<div class="checkbox" style="margin-left: 23%;">
+													<h:selectBooleanCheckbox id="campo5" />Sim
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<!--  FIM DA PARTE 1 -->
+
+									<!-- INICIO PARTE 2 -->
+									<div id="parte2" class="tab-pane">
+
+										<div class="form-group">
+											<h:outputLabel styleClass="col-sm-2 control-label">Campo 6:</h:outputLabel>
+											<div>
+												<h:selectOneRadio id="campo6" class="radio" layout="pageDirection">
+													<f:selectItem itemValue="1" itemLabel="Opção 1" />
+													<f:selectItem itemValue="1" itemLabel="Opção 2" />
+													<f:selectItem itemValue="1" itemLabel="Opção 3" />
+												</h:selectOneRadio>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<h:outputLabel styleClass="col-sm-2 control-label" for="campo7">Campo 7:</h:outputLabel>
+											<div class="col-sm-3">
+												<h:inputText styleClass="form-control datepicker campoData" id="teste" />
+											</div>
+										</div>
+
+									</div>
+									<!-- FIM PARTE 2 -->
+
+									<!-- INICIO PARTE 3 -->
+									<div id="confirmacao" class="tab-pane">
+
+									</div>
+
+								</div>
+							</h:form>
+							<!-- FIM FORM-->
+						</div>
+					</div>
+					<a class="btn btn-primary btnPrevious">Previous</a> 
+					<a class="btn btn-primary btnNext">Next</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>
