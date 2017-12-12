@@ -2,8 +2,7 @@ package br.com.sinapsis.managedBean;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-
-import br.com.sinapsis.dao.OcorrenciaDAO;
+import br.com.sinapsis.bo.OcorrenciaBO;
 import br.com.sinapsis.entities.Ocorrencia;
 
 @ManagedBean
@@ -11,7 +10,7 @@ import br.com.sinapsis.entities.Ocorrencia;
 public class OcorrenciaMB {
 
 	private Ocorrencia ocorrencia;
-	private OcorrenciaDAO ocorrenciaDAO = new OcorrenciaDAO();
+	private OcorrenciaBO ocorrenciaBO;
 	
 	public Ocorrencia getOcorrencia() {
 		return ocorrencia;
@@ -19,10 +18,6 @@ public class OcorrenciaMB {
 	
 	public void setOcorrencia(Ocorrencia ocorrencia) {
 		this.ocorrencia = ocorrencia;
-	}
-	
-	public OcorrenciaDAO getOcorrenciaDAO() {
-		return ocorrenciaDAO;
 	}
 	
 }

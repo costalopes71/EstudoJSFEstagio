@@ -1,12 +1,12 @@
 package br.com.sinapsis.entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Ocorrencia {
 
 	private int id;
 	private int numero;
-	private Date dataInicial;
+	private LocalDate dataInicial;
 	private String defeito;
 	private double latitude;
 	private double longitude;
@@ -34,11 +34,11 @@ public class Ocorrencia {
 		this.numero = numero;
 	}
 	
-	public Date getDataInicial() {
+	public LocalDate getDataInicial() {
 		return dataInicial;
 	}
 	
-	public void setDataInicial(Date dataInicial) {
+	public void setDataInicial(LocalDate dataInicial) {
 		this.dataInicial = dataInicial;
 	}
 	
