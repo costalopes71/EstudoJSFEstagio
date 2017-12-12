@@ -55,7 +55,7 @@
 										<div class="form-group">
 											<h:outputLabel styleClass="col-sm-2 control-label" for="defeito">Defeito:</h:outputLabel>
 											<div class="col-sm-6">
-												<h:inputText value="#{ocorrenciaMB.ocorrencia.defeito}" styleClass="form-control" id="defeito" />
+												<h:inputText value="#{ocorrenciaMB.ocorrencia.defeito}" styleClass="form-control" id="defeito" required="true"/>
 												<h:message for="defeito"></h:message>
 											</div>
 										</div>
@@ -78,10 +78,9 @@
 
 										<div class="form-group">
 											<h:outputLabel styleClass="col-sm-2 control-label" for="causa">Causa:</h:outputLabel>
-											<div class="col-sm-2">
-												<h:selectOneMenu styleClass="form-control" id="causa" value="">
-													<f:selectItem itemValue="1" itemLabel="Item 1" />
-													<f:selectItem itemValue="2" itemLabel="Item 2" />
+											<div class="col-sm-4">
+												<h:selectOneMenu styleClass="form-control" id="causa" value="#{ocorrenciaMB.causaId}">
+													<f:selectItems value="#{ocorrenciaMB.causas}" var="causa" itemLabel="#{causa.descricao}" itemValue="#{causa.id}"/>
 												</h:selectOneMenu>
 											</div>
 										</div>
@@ -90,7 +89,7 @@
 											<h:outputLabel styleClass="col-sm-2 control-label" for="expurgo">Expurgo: </h:outputLabel>
 											<div class="col-sm-2">
 												<div class="checkbox" style="margin-left: 23%;">
-													<h:selectBooleanCheckbox id="expurgo" />Sim
+													<h:selectBooleanCheckbox value="#{ocorrenciaMB.ocorrencia.expurgo}" id="expurgo" />Sim
 												</div>
 											</div>
 										</div>
@@ -128,7 +127,7 @@
 											<p>Confirma a inclusão da entidade?</p>
 											<div class="divBotoes">
 												<input type="reset" value="Não" class="btn btnReset"/>
-												<h:commandButton value="Sim" styleClass="btn" outcome="ocorrenciaMB.ocorrenciaDAO.imprimirConsole"/>
+												<h:commandButton value="Sim" styleClass="btn" actionListener="#{ocorrenciaMB.imprimirConsole}"/>
 											</div>
 										</div>
 										

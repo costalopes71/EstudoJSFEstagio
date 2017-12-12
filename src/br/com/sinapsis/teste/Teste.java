@@ -18,17 +18,15 @@ public class Teste {
 			e.printStackTrace();
 		}
 		
-		List<Causa> lista = null;
+		Causa causa = null;
 		try {
-			lista = dao.listar();
+			causa = dao.buscar(1);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		for (Causa causa : lista) {
 			System.out.println(causa.getCodigo() + " -- " + causa.getDescricao() + " --- " + causa.getId());
-		}
 		
 	}
 	

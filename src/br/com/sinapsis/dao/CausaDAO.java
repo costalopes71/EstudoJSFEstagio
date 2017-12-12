@@ -29,10 +29,7 @@ public class CausaDAO {
 			Causa causa = null;
 			
 			while (rs.next()) {
-				causa = new Causa();
-				causa.setId(rs.getInt("id"));
-				causa.setCodigo(rs.getString("codigo"));
-				causa.setDescricao(rs.getString("descricao"));
+				causa = setCausaFromBD(rs);
 				lista.add(causa);
 			}
 			
@@ -52,6 +49,47 @@ public class CausaDAO {
 			}
 		}
 		return lista;
+	}
+	
+	public Causa buscar(int id) throws SQLException {
+		
+		String query = "SELECT * FROM T_CAUSA WHERE id = ?";
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		Causa causa = null;
+		try {
+			pstm = conn.prepareStatement(query);
+			pstm.setInt(1, id);
+			rs = pstm.executeQuery();
+			
+			if (rs.next()) {
+				causa = this.setCausaFromBD(rs);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new SQLException(e);
+		} finally {
+			try {
+				rs.close();
+				pstm.close();
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new SQLException("Erro ao fechar recursos SQL.", e);
+			}
+		}
+		return causa;
+	}
+	
+	private Causa setCausaFromBD(ResultSet rs) throws SQLException {
+		Causa causa = new Causa();
+		causa.setId(rs.getInt("id"));
+		causa.setCodigo(rs.getString("codigo"));
+		causa.setDescricao(rs.getString("descricao"));
+		return causa;
 	}
 	
 }

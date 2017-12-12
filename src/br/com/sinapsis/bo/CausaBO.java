@@ -2,10 +2,9 @@ package br.com.sinapsis.bo;
 
 import java.sql.SQLException;
 import java.util.List;
-
 import br.com.sinapsis.dao.CausaDAO;
 import br.com.sinapsis.entities.Causa;
-import br.com.sinapsis.exception.RetrieveException;
+import br.com.sinapsis.exceptions.RetrieveException;
 
 public class CausaBO {
 
@@ -26,9 +25,18 @@ public class CausaBO {
 		try {
 			return causaDAO.listar();
 		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RetrieveException();
+			throw new RetrieveException(e);
 		}
+	}
+	
+	public Causa buscar(int id) throws RetrieveException {
+		try {
+			return causaDAO.buscar(id);
+		} catch (SQLException e) {
+			throw new RetrieveException(e);
+		}
+		
+		
 	}
 	
 }
