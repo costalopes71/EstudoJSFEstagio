@@ -30,7 +30,7 @@
 				<div class="panel-body">
 
 					<div class="panel panel-default painelPrincipal">
-						<div class="panel-body">
+						<div class="panel-body painelSecundario">
 
 							<ul class="nav nav-tabs">
 								<li class="active"><a data-toggle="tab" href="#parte1">PARTE 1</a></li>
@@ -44,27 +44,31 @@
 
 									<!-- INICIO PARTE 1 -->
 									<div id="parte1" class="tab-pane active">
+										<h:messages style="color: red;"/>
 										<div class="form-group">
 											<h:outputLabel styleClass="col-sm-2 control-label" for="numOcr">Número Ocr:</h:outputLabel>
 											<div class="col-sm-6">
-												<h:inputText value="#{ocorrenciaMB.ocorrencia.numero}" required="true" styleClass="form-control" id="numOcr" />
-												<h:message for="numOcr"/>
+												<h:inputText maxlength="4" value="#{ocorrenciaMB.ocorrencia.numero}" required="true" 
+												styleClass="form-control" id="numOcr" validatorMessage="Tamanho mínimo do campo número é (4)" 
+												requiredMessage="Número é obrigatório">
+													<f:validateLength minimum="4" maximum="4"/>
+												</h:inputText>
 											</div>
 										</div>
 
 										<div class="form-group">
 											<h:outputLabel styleClass="col-sm-2 control-label" for="defeito">Defeito:</h:outputLabel>
 											<div class="col-sm-6">
-												<h:inputText value="#{ocorrenciaMB.ocorrencia.defeito}" styleClass="form-control" id="defeito" required="true"/>
-												<h:message for="defeito"></h:message>
+												<h:inputText value="#{ocorrenciaMB.ocorrencia.defeito}" styleClass="form-control" id="defeito" 
+												required="true" requiredMessage="Defeito é campo obrigatório"/>
 											</div>
 										</div>
 
 										<div class="form-group">
 											<h:outputLabel styleClass="col-sm-2 control-label" for="latitude">Latitude:</h:outputLabel>
 											<div class="col-sm-6">
-												<h:inputText value="#{ocorrenciaMB.ocorrencia.latitude}" styleClass="form-control" id="latitude" />
-												<h:message for="latitude"/>
+												<h:inputText value="#{ocorrenciaMB.ocorrencia.latitude}" styleClass="form-control" id="latitude" 
+												validatorMessage="Campo LATITUDE aceita apenas números."/>
 											</div>
 										</div>
 
@@ -72,7 +76,6 @@
 											<h:outputLabel styleClass="col-sm-2 control-label" for="longitude">Longitude:</h:outputLabel>
 											<div class="col-sm-6">
 												<h:inputText value="#{ocorrenciaMB.ocorrencia.longitude}" styleClass="form-control" id="longitude" />
-												<h:message for="longitude"/>
 											</div>
 										</div>
 
