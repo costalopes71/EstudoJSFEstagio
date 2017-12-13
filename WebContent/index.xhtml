@@ -113,7 +113,9 @@
 										<div class="form-group">
 											<h:outputLabel styleClass="col-sm-2 control-label" for="dt-inicial">Data Inicial:</h:outputLabel>
 											<div class="col-sm-3">
-												<h:inputText value="ocorrenciaMB.ocorrencia.dataInicial" styleClass="form-control datepicker campoData" id="dt-inicial" />
+												<h:inputText value="#{ocorrenciaMB.ocorrencia.dataInicial.time}" styleClass="form-control datepicker campoData" id="dt-inicial" >
+													<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
+												</h:inputText>
 											</div>
 										</div>
 
@@ -127,7 +129,7 @@
 											<p>Confirma a inclusão da entidade?</p>
 											<div class="divBotoes">
 												<input type="reset" value="Não" class="btn btnReset"/>
-												<h:commandButton value="Sim" styleClass="btn" actionListener="#{ocorrenciaMB.imprimirConsole}"/>
+												<h:commandButton value="Sim" styleClass="btn" actionListener="#{ocorrenciaMB.adicionar}"/>
 											</div>
 										</div>
 										

@@ -4,16 +4,18 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 
 import br.com.sinapsis.bo.CausaBO;
+import br.com.sinapsis.bo.OcorrenciaBO;
 import br.com.sinapsis.dao.CausaDAO;
 import br.com.sinapsis.entities.Causa;
 import br.com.sinapsis.entities.Ocorrencia;
-import br.com.sinapsis.exceptions.RetrieveException;
+import br.com.sinapsis.exceptions.InsertException;
 
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class OcorrenciaMB {
 
 	private Ocorrencia ocorrencia = new Ocorrencia();
@@ -45,21 +47,18 @@ public class OcorrenciaMB {
 		return null;
 	}
 	
-	public void imprimirConsole() {
+	public void adicionar() {
+		
 		try {
 			ocorrencia.setCausa(new CausaBO().buscar(causaId));
-		} catch (Exception e) {
+			new OcorrenciaBO().adicionar(this.ocorrencia);
+		} catch (InsertException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.err.println(e.getMessage());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		System.out.println(ocorrencia.getNumero());
-		System.out.println(ocorrencia.getLatitude());
-		System.out.println(ocorrencia.getLongitude());
-		System.out.println(ocorrencia.getDefeito());
-		System.out.println(ocorrencia.isExpurgo());
-		System.out.println(ocorrencia.getArea());
-		System.out.println(ocorrencia.getCausa().getId() + " -- " + ocorrencia.getCausa().getDescricao() + " --- "  + 
-		ocorrencia.getCausa().getCodigo());
 		ocorrencia = new Ocorrencia();
 	}
 	

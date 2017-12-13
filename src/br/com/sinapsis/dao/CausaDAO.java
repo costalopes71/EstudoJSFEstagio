@@ -14,7 +14,9 @@ public class CausaDAO {
 	private Connection conn;
 	
 	public CausaDAO() throws SQLException {
-		conn = ConnectionManager.getInstance().getConnection();
+		if (conn == null) {
+			conn = ConnectionManager.getInstance().getConnection();
+		}
 	}
 	
 	public List<Causa> listar() throws SQLException {

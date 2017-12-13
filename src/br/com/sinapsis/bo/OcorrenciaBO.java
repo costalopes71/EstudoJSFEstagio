@@ -8,17 +8,10 @@ import br.com.sinapsis.exceptions.InsertException;
 
 public class OcorrenciaBO {
 
-	private static OcorrenciaDAO dao;
+	private OcorrenciaDAO dao;
 	
 	public OcorrenciaBO() throws Exception {
-		if (dao == null) {
-			try {
-				dao = new OcorrenciaDAO();
-			} catch (SQLException e) {
-				e.printStackTrace();
-				throw new Exception("Erro ao acessar o banco", e);
-			}
-		}
+		dao = new OcorrenciaDAO();
 	}
 	
 	public void adicionar(Ocorrencia ocorrencia) throws InsertException {

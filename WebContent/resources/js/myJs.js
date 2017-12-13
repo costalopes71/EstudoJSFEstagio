@@ -1,5 +1,6 @@
 $( function() {
 	$( ".datepicker" ).datepicker({
+		  dateFormat: 'dd/mm/yy',
 		  showOn: "button",
 	      buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif",
 	      buttonImageOnly: true,

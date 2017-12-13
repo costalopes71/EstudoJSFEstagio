@@ -8,17 +8,10 @@ import br.com.sinapsis.exceptions.RetrieveException;
 
 public class CausaBO {
 
-	private static CausaDAO causaDAO;
+	private CausaDAO causaDAO;
 	
 	public CausaBO() throws SQLException {
-		if (causaDAO == null) {
-			try {
-				causaDAO = new CausaDAO();
-			} catch (SQLException e) {
-				e.printStackTrace();
-				throw new SQLException();
-			}
-		}
+		causaDAO = new CausaDAO();
 	}
 	
 	public List<Causa> listar() throws RetrieveException {

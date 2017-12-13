@@ -1,12 +1,12 @@
 package br.com.sinapsis.entities;
 
-import java.time.LocalDate;
+import java.util.Calendar;
 
 public class Ocorrencia {
 
 	private int id;
 	private int numero;
-	private LocalDate dataInicial;
+	private Calendar dataInicial;
 	private String defeito;
 	private double latitude;
 	private double longitude;
@@ -15,7 +15,7 @@ public class Ocorrencia {
 	private boolean expurgo;
 	
 	public Ocorrencia() {
-		
+		dataInicial = Calendar.getInstance();
 	}
 	
 	public int getId() {
@@ -34,11 +34,11 @@ public class Ocorrencia {
 		this.numero = numero;
 	}
 	
-	public LocalDate getDataInicial() {
+	public Calendar getDataInicial() {
 		return dataInicial;
 	}
 	
-	public void setDataInicial(LocalDate dataInicial) {
+	public void setDataInicial(Calendar dataInicial) {
 		this.dataInicial = dataInicial;
 	}
 	

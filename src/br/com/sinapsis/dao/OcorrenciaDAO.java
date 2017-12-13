@@ -7,11 +7,10 @@ import br.com.sinapsis.entities.Ocorrencia;
 
 public class OcorrenciaDAO {
 
-	private static Connection conn;
+	private Connection conn;
 	
 	public OcorrenciaDAO() throws SQLException {
-		if (conn == null)
-			conn = ConnectionManager.getInstance().getConnection();
+		conn = ConnectionManager.getInstance().getConnection();
 	}
 	
 	public void imprimirConsole(Ocorrencia ocorrencia) {
@@ -26,7 +25,7 @@ public class OcorrenciaDAO {
 		try {
 			pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, ocorrencia.getNumero());
-			pstm.setDate(2, java.sql.Date.valueOf(ocorrencia.getDataInicial()));
+			pstm.setDate(2, new java.sql.Date(ocorrencia.getDataInicial().getTimeInMillis()));
 			pstm.setString(3, ocorrencia.getDefeito());
 			pstm.setDouble(4, ocorrencia.getLatitude());
 			pstm.setDouble(5, ocorrencia.getLongitude());
@@ -39,14 +38,9 @@ public class OcorrenciaDAO {
 		} finally {
 			pstm.close();
 			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+				conn.close();
 			}
 		}
-		
 		
 	}
 	
